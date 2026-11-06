@@ -1,0 +1,93 @@
+
+import { Ionicons } from "@expo/vector-icons";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+const Profile = () => {
+  return (
+    <SafeAreaView
+      className="flex-1 bg-gray-50"
+      edges={["top", "left", "right"]}
+    >
+      <ScrollView
+        className="flex-1 px-5 pt-2"
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header - Saudação e Perfil */}
+        <TouchableOpacity className="bg-gray-200 flex-row justify-center items-center py-4 rounded-2xl mb-8 shadow-sm">
+          <View className="flex-col justify-between items-center mb-3">
+            <View className="w-16 h-16 rounded-full bg-gray-300 items-center justify-center border border-gray-200 shadow-xs mb-3">
+              <Ionicons name="person" size={32} color="#4B5563" />
+            </View>
+
+            <View className="flex-1 items-center">
+              <Text className="text-3xl font-bold text-gray-900 text-center">
+                Luciano Fernando
+              </Text>
+              <Text className="text-base font-bold text-slate-600 text-center">
+                lucianofernando@gmail.com
+              </Text>
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        {/* Botão: Editar Perfil */}
+        <TouchableOpacity className="bg-gray-100 flex-row justify-between items-center py-4 px-4 rounded-2xl mb-6 shadow-sm border border-gray-400 active:bg-gray-300">
+          <View className="flex-row items-center flex-1">
+            <View className="w-12 h-12 rounded-full  items-center justify-center mr-3">
+              <Ionicons name="people-outline" size={24} color="gray" />
+            </View>
+            <Text className="font-bold text-gray-700 text-center">
+              Editar Perfil
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="gray" />
+        </TouchableOpacity>
+
+        {/* Botão: Alterar palavra-passe */}
+        <TouchableOpacity className="bg-gray-100 flex-row justify-between items-center py-4 px-4 rounded-2xl mb-6 shadow-sm border border-gray-400 active:bg-gray-300">
+          <View className="flex-row items-center flex-1">
+            <View className="w-12 h-12 rounded-full  items-center justify-center mr-3">
+              <Ionicons name="lock-closed-outline" size={24} color="gray" />
+            </View>
+            <Text className="font-bold text-gray-700 text-center">
+              Alterar palavra-passe
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="gray" />
+        </TouchableOpacity>
+
+        {/* Botão: Sobre app */}
+        <TouchableOpacity className="bg-gray-100 flex-row justify-between items-center py-4 p-4 rounded-2xl mb-6 shadow-sm border border-gray-400 active:bg-gray-300">
+          <View className="flex-row items-center flex-1">
+            <View className="w-12 h-12 rounded-full  items-center justify-center mr-3">
+              <Ionicons
+                name="information-circle-outline"
+                size={24}
+                color="gray"
+              />
+            </View>
+            <Text className="font-bold text-gray-700 text-center">
+              Sobre app
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={24} color="gray" />
+        </TouchableOpacity>
+
+        {/* Botão: Terminar Sessão */}
+        <TouchableOpacity className="bg-gray-100 flex-row justify-center items-center py-4 rounded-2xl mb-6 shadow-sm border-2 border-red-400 active:bg-red-300">
+          <View className="flex-row items-center flex-1 justify-center">
+            <View className="w-12 h-12 rounded-full  items-center justify-center mr-3">
+              <Ionicons name="exit-outline" size={24} color="red" />
+            </View>
+            <Text className="font-bold text-red-600 text-center">
+              Terminar Sessão
+            </Text>
+          </View>
+        </TouchableOpacity>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
+export default Profile;
