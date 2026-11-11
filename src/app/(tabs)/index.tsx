@@ -1,5 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import { useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -8,6 +9,7 @@ import {
   View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AddAppointments from "../screen/add-appointments";
 
 /*
 const links = [
@@ -18,6 +20,7 @@ const links = [
 ];*/
 
 export default function Index() {
+  const [showAddForm, setShowAddForm] = useState(false);
   return (
     <SafeAreaView
       className="flex-1 bg-gray-50"
@@ -27,7 +30,6 @@ export default function Index() {
         className="flex-1 px-5 pt-2"
         showsVerticalScrollIndicator={false}
       >
-       
         <Text className="text-gray-500 text-base mb-6">
           RESUMO DE CONSULTAS
         </Text>
@@ -71,25 +73,25 @@ mb-3"
         <TouchableOpacity
           className="bg-blue-600 flex-row justify-center items-center py-4 
 rounded-2xl mb-8 shadow-sm active:bg-blue-700"
-        >
-          <Link
-            href={"/consult"}
-            className="text-white font-semibold text-base ml-2"
-          >
+           onPress={() => setShowAddForm(!showAddForm)}>
+         
             <Ionicons name="add" size={20} color="#FFFFFF" />
             <Text className="text-white font-bold text-base ml-2">
               Marcar nova consulta
             </Text>
-          </Link>
         </TouchableOpacity>
-
+  {showAddForm && <AddAppointments visible={showAddForm} onClose={() => setShowAddForm(false)} 
+          />}
+          
         {/* Seção Próximas Consultas */}
         <View className="flex-row justify-between items-center mb-4">
           <Text className="text-xl font-bold text-gray-900">
             Próximas consultas
           </Text>
           <TouchableOpacity className="flex-row items-center">
-            <Text className="text-blue-600 font-medium mr-1">Ver todas</Text>
+            <Link href={"/consult"}>
+              <Text className="text-blue-600 font-medium mr-1">Ver todas</Text>
+            </Link>
             <Ionicons name="chevron-forward" size={16} color="#2563EB" />
           </TouchableOpacity>
         </View>
@@ -108,7 +110,7 @@ mr-3"
             </View>
             <View className="flex-1">
               <Text className="text-base font-bold text-gray-900">
-                Dr. Carlos Silva
+                Dr. Laurindo Samuel
               </Text>
               <Text className="text-gray-400 text-sm mb-1">Medicina Geral</Text>
               <Text className="text-gray-500 text-xs font-medium">
@@ -133,7 +135,7 @@ mr-3"
             </View>
             <View className="flex-1">
               <Text className="text-base font-bold text-gray-900">
-                Dra. Mariana Costa
+                Dra. Cristina Costa
               </Text>
               <Text className="text-gray-400 text-sm mb-1">Cardiologia</Text>
               <Text className="text-gray-500 text-xs font-medium">
@@ -141,6 +143,7 @@ mr-3"
               </Text>
             </View>
           </View>
+          
           <Ionicons name="chevron-forward" size={20} color="#9CA3AF" />
         </TouchableOpacity>
       </ScrollView>

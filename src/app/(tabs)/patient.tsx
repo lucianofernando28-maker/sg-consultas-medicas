@@ -1,9 +1,12 @@
 import PatientCard from "@/src/components/patient-card";
 import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import AddPatient from "../screen/add-patient";
 
 const Patient = () => {
+  const [showAddForm, setShowAddForm] = useState(false);
   return (
     <SafeAreaView
       className="flex-1 bg-gray-50"
@@ -18,12 +21,19 @@ const Patient = () => {
             LISTA DE PACIENTES
           </Text>
           <TouchableOpacity
-            onPress={() => console.log("Cadastrar novo paciente")}
+            onPress={() => setShowAddForm(!showAddForm)}
             className="w-11 h-11 rounded-full bg-blue-600 items-center justify-center shadow-sm active:bg-blue-700"
           >
             <Ionicons name="add" size={26} color="white" />
           </TouchableOpacity>
         </View>
+        {showAddForm && (
+          <AddPatient
+            visible={showAddForm}
+            onClose={() => setShowAddForm(false)}
+          />
+        )}
+
         {/* Lista de pacientes */}
         <View>
           <PatientCard

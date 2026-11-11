@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Medi-agenda",
-    "slug": "Medi-agenda",
+    "name": "SISTEMA DE GESTÃO DE CONSULTAS",
+    "slug": "medical-appointments",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -24,11 +24,11 @@
       "favicon": "./assets/images/favicon.png"
     },
 
-  "expo": {
-    "web": {
-      "bundler": "metro"
-    }
-  },
+    "expo": {
+      "web": {
+        "bundler": "metro"
+      }
+    },
     "plugins": [
       "expo-router",
       [

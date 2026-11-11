@@ -14,7 +14,6 @@ const PatientCard = ({ name, details, onPress }: PatientCardProps) => (
     className="bg-gray-100 flex-row justify-between items-center py-4 px-4 rounded-2xl mb-6 shadow-sm border border-gray-400 active:bg-gray-300"
   >
     <View className="flex-row items-center flex-1">
-      {/* Espaçamento ajustado com mr-4 */}
       <View className="w-12 h-12 rounded-full items-center justify-center mr-4 bg-gray-300">
         <Ionicons name="person" size={32} color="#4B5563" />
       </View>
